@@ -2,6 +2,14 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb"
-  ]
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "globals": {
+    "document": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0
+  }
 }
