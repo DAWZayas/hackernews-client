@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
 const isSearched = searchTerm => item =>
   item.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -15,12 +16,12 @@ const Table = ({ list, pattern, onDismiss }) => (
         <span>{item.num_comments}</span>
         <span>{item.points}</span>
         <span>
-          <button
+          <Button
             onClick={() => onDismiss(item.objectID)}
             type="button"
           >
             Dismiss
-          </button>
+          </Button>
         </span>
       </div>
     ))}
