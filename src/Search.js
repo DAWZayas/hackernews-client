@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ value, onChange }) => (
+const Search = ({ value, onChange, children }) => (
   <form>
-    <input
+    {children} <input
       type="text"
       value={value}
       onChange={onChange}
@@ -14,6 +14,7 @@ const Search = ({ value, onChange }) => (
 Search.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default Search;
