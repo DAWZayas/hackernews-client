@@ -6,10 +6,21 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "globals": {
-    "document": true
+  "env": {
+    "browser": true,
+    "jest": true
   },
   "rules": {
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/jsx-max-props-per-line": [
+      2,
+      {
+        "when": "always"
+      }
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always"
+    ]
   }
 }

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 const Search = ({ value, onChange }) => (
   <form>
-    <input type="text" value={value} onChange={onChange} />
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+    />
   </form>
 );
 
