@@ -39,7 +39,7 @@ Table.propTypes = {
     url: PropTypes.string,
     num_comments: PropTypes.number,
     points: PropTypes.number,
-    objectID: PropTypes.number,
+    objectID: PropTypes.string,
   })).isRequired,
   pattern: PropTypes.string.isRequired,
   onDismiss: PropTypes.func.isRequired,
