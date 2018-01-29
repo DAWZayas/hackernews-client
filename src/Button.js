@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./Button.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Button.css';
 
 const Button = ({ onClick, className, children }) => (
   <button
@@ -15,12 +15,12 @@ const Button = ({ onClick, className, children }) => (
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
-  children: PropTypes.string
+  children: PropTypes.string,
 };
 
 Button.defaultProps = {
-  children: "click me",
-  className: "button-inline"
+  children: 'click me',
+  className: 'button-inline',
 };
 
 export default Button;

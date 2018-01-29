@@ -6,6 +6,7 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
+  "plugins": ["import"],
   "env": {
     "browser": true,
     "jest": true
@@ -18,9 +19,7 @@
         "when": "always"
       }
     ],
-    "lines-between-class-members": [
-      "error",
-      "always"
-    ]
+    "lines-between-class-members": ["error", "always"],
+    "import/order": ["error", { "newlines-between": "always" }]
   }
 }
