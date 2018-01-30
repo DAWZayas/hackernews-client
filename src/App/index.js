@@ -33,6 +33,7 @@ class App extends Component {
       searchTerm: DEFAULT_QUERY,
       error: null,
       isLoading: false,
+      sortKey: 'NONE',
     };
 
     this.needsToSearchTopStories = this.needsToSearchTopStories.bind(this);
@@ -41,6 +42,7 @@ class App extends Component {
     this.onDismiss = this.onDismiss.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
     this.onSearchSubmit = this.onSearchSubmit.bind(this);
+    this.onSort = this.onSort.bind(this);
   }
 
   componentDidMount() {
@@ -75,11 +77,14 @@ class App extends Component {
     event.preventDefault();
   }
 
+  onSort(sortKey) {
+    this.setState({ sortKey });
+  }
+
   setSearchTopStories(result) {
     const { hits, page } = result;
     const { searchKey, results } = this.state;
-    const oldHits =
-      results && results[searchKey] ? results[searchKey].hits : [];
+    const oldHits = results && results[searchKey] ? results[searchKey].hits : [];
     const updatedHits = [...oldHits, ...hits];
     this.setState({
       results: {
@@ -104,13 +109,11 @@ class App extends Component {
 
   render() {
     const {
-      results, searchKey, searchTerm, error, isLoading,
+      results, searchKey, searchTerm, error, isLoading, sortKey,
     } = this.state;
 
-    const page =
-      (results && results[searchKey] && results[searchKey].page) || 0;
-    const list =
-      (results && results[searchKey] && results[searchKey].hits) || [];
+    const page = (results && results[searchKey] && results[searchKey].page) || 0;
+    const list = (results && results[searchKey] && results[searchKey].hits) || [];
     return (
       <div className="page">
         <div className="interactions">
@@ -129,6 +132,8 @@ class App extends Component {
         ) : (
           <Table
             list={list}
+            sortKey={sortKey}
+            onSort={this.onSort}
             onDismiss={this.onDismiss}
           />
         )}
