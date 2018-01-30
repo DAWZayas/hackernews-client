@@ -12,45 +12,29 @@ const Table = ({
 }) => {
   const sortedList = SORTS[sortKey](list);
   const reverseSortedList = isSortReverse ? sortedList.reverse() : sortedList;
+  const headerColumns = [
+    { title: 'Title', width: '40%' },
+    { title: 'Author', width: '30%' },
+    { title: 'Comments', width: '10%' },
+    { title: 'Points', width: '10%' },
+  ];
   return (
     <div className="table">
       <div className="table-header">
-        <span style={{ width: '40%' }}>
-          <Sort
-            sortKey="TITLE"
-            onSort={onSort}
-            activeSortKey={sortKey}
+        {headerColumns.map(({ title, width }) => (
+          <span
+            key={title}
+            style={{ width }}
           >
-            Title
-          </Sort>
-        </span>
-        <span style={{ width: '30%' }}>
-          <Sort
-            sortKey="AUTHOR"
-            onSort={onSort}
-            activeSortKey={sortKey}
-          >
-            Author
-          </Sort>
-        </span>
-        <span style={{ width: '10%' }}>
-          <Sort
-            sortKey="COMMENTS"
-            onSort={onSort}
-            activeSortKey={sortKey}
-          >
-            Comments
-          </Sort>
-        </span>
-        <span style={{ width: '10%' }}>
-          <Sort
-            sortKey="POINTS"
-            onSort={onSort}
-            activeSortKey={sortKey}
-          >
-            Points
-          </Sort>
-        </span>
+            <Sort
+              sortKey={title.toUpperCase()}
+              onSort={onSort}
+              activeSortKey={sortKey}
+            >
+              {title}
+            </Sort>
+          </span>
+        ))}
         <span style={{ width: '10%' }}>Archive</span>
       </div>
       {reverseSortedList.map(item => (
